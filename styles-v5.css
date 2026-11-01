@@ -71,6 +71,8 @@ section{padding:78px 0}
 .chapter{display:grid;grid-template-columns:86px 1fr;gap:24px;padding:26px 28px;margin-bottom:14px;background:var(--panel);border:1px solid var(--line);border-radius:24px}
 .chapter .no{font-family:'Antonio',sans-serif;font-size:30px;color:#000;background:#fff;border-radius:18px;height:fit-content;padding:10px 0;text-align:center}
 .chapter.c-trf .no{background:var(--trf);color:#fff}.chapter.c-dig .no{background:var(--dig)}.chapter.c-gdc .no{background:var(--gdc)}.chapter.c-mpe .no{background:var(--mpe);color:#fff}.chapter.c-gold .no{background:linear-gradient(135deg,var(--gold2),var(--gold))}
+.chapter .no.logo{padding:6px;line-height:0}
+.chapter .no.logo img{width:100%;height:auto;display:block;border-radius:12px}
 .chapter h3{font-size:27px;margin-bottom:6px}
 .chapter p{color:var(--dim);font-size:16px;max-width:68ch}
 .chapter p b{color:#fff}
