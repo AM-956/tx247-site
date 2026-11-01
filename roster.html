@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crew Roster — TX247 Galactic Coalition</title>
+<link rel="stylesheet" href="styles-v5.css">
+<style>
+  .rtable{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .rtable th{font-family:'Antonio',sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:14px;text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);color:var(--cyan)}
+  .rtable td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.05);color:var(--dim);font-size:14.5px;vertical-align:middle}
+  .rtable tr:last-child td{border-bottom:0}
+  .rtable .who{display:flex;align-items:center;gap:12px;color:#fff;font-weight:700}
+  .rtable .who img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:1.5px solid var(--cyan)}
+  .statebox{max-width:640px}
+</style>
+</head>
+<body>
+<div class="mockbar">Design Mockup v5 — full site draft · not live</div>
+
+<nav><div class="wrap nav-in">
+  <a class="brand" href="index.html"><img src="img/logo.jpg" alt="TX247 logo"><span><span class="bt">TX247</span><small>Galactic Coalition</small></span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="lore.html">Lore</a>
+    <a href="factions.html">Factions</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="rules.html">Rules</a>
+    <a href="ships.html">Ships</a>
+    <a href="shop.html">Shop</a>
+    <a href="sponsor.html">Sponsor</a>
+    <a class="btn discord-login" href="how-it-works.html#website-accounts" style="padding:9px 20px">Login with Discord</a>
+    <a class="btn" href="#" style="padding:9px 20px">Join Discord</a>
+  </div>
+</div></nav>
+
+<div class="pagehero"><div class="wrap">
+  <div class="kickerline">Staff Only</div>
+  <h1>Crew roster</h1>
+  <p>Every member who has <b>linked their Discord</b> to the website, with the rank, faction and tier their roles give them. Members appear here only after their first sign-in — the roster never reaches into the guild.</p>
+</div></div>
+
+<section><div class="wrap">
+
+  <div id="roster-loading" class="statebox">
+    <div class="step"><h3>Loading the manifest…</h3><p>Checking your staff clearance with the account service.</p></div>
+  </div>
+
+  <div id="roster-inactive" class="statebox" style="display:none">
+    <div class="step"><h3>Roster opens at relaunch</h3><p>Website accounts are Discord accounts — linking opens at relaunch; your server rank, faction and donor tier come with you. Once linking is live, staff will see every linked member here.</p><p style="margin-top:12px"><a class="btn ghost" href="how-it-works.html#website-accounts">How accounts will work</a></p></div>
+  </div>
+
+  <div id="roster-out" class="statebox" style="display:none">
+    <div class="step"><h3>Sign in first</h3><p>The roster is staff-only, and staff are known by their Discord roles. Sign in so the service can check yours.</p><p style="margin-top:14px"><a class="btn discord-login" href="how-it-works.html#website-accounts">Login with Discord</a></p></div>
+  </div>
+
+  <div id="roster-denied" class="statebox" style="display:none">
+    <div class="step"><h3>Staff only</h3><p>You're signed in — but your Discord roles don't carry a staff role (Owner / Admin / Moderator class), so the manifest stays closed. If that looks wrong, check your roles in the TX247 Discord and sign in again.</p><p style="margin-top:14px"><a class="btn ghost" href="account.html">Back to your account</a></p></div>
+  </div>
+
+  <div id="roster-error" class="statebox" style="display:none">
+    <div class="step"><h3>The roster wouldn't load</h3><p id="roster-error-msg">Something went wrong.</p></div>
+  </div>
+
+  <div id="roster-wrap" style="display:none">
+    <table class="rtable">
+      <thead><tr>
+        <th>Member</th><th>Rank</th><th>Faction</th><th>Donor tier</th><th>Sponsor</th><th>Staff</th><th>Linked</th>
+      </tr></thead>
+      <tbody id="roster-body"></tbody>
+    </table>
+    <p class="note" id="roster-count" style="margin-top:14px"></p>
+  </div>
+
+  <noscript><p class="note" style="margin-top:18px">The roster needs JavaScript — it is loaded live from the account service.</p></noscript>
+</div></section>
+
+<div class="earthband"></div>
+<footer><div class="wrap foot">
+  <div>© 2026 TX247 Galactic Coalition · Established 2016. A fan-run community server.</div>
+  <div>Not affiliated with Keen Software House. Space Engineers is a trademark of Keen Software House.</div>
+</div></footer>
+
+<script src="js/auth-config.js"></script>
+<script src="js/auth.js"></script>
+<script>
+(function () {
+  "use strict";
+  var cfg = window.TX247_AUTH || {};
+  var PANELS = ["loading", "inactive", "out", "denied", "error", "wrap"];
+
+  function show(id) {
+    PANELS.forEach(function (p) {
+      var el = document.getElementById("roster-" + p);
+      if (el) el.style.display = p === id ? "" : "none";
+    });
+  }
+  function fail(msg) {
+    document.getElementById("roster-error-msg").textContent = msg;
+    show("error");
+  }
+  function cell(text) {
+    var td = document.createElement("td");
+    td.textContent = text;
+    return td;
+  }
+
+  if (!cfg.clientId || !cfg.apiBase) {
+    show("inactive");
+    return;
+  }
+  var api = cfg.apiBase.replace(/\/+$/, "");
+
+  fetch(api + "/api/roster", { credentials: "include" })
+    .then(function (r) {
+      if (r.status === 401) {
+        show("out");
+        return null;
+      }
+      if (r.status === 403) {
+        show("denied");
+        return null;
+      }
+      if (!r.ok) throw new Error("The account service returned " + r.status + ".");
+      return r.json();
+    })
+    .then(function (data) {
+      if (!data) return;
+      var body = document.getElementById("roster-body");
+      body.innerHTML = "";
+      var members = data.members || [];
+      if (!members.length) {
+        var tr = document.createElement("tr");
+        var td = cell("No linked members yet — the manifest fills as the crew signs in.");
+        td.colSpan = 7;
+        tr.appendChild(td);
+        body.appendChild(tr);
+      }
+      members.forEach(function (m) {
+        var tr = document.createElement("tr");
+
+        var who = document.createElement("td");
+        var wrap = document.createElement("span");
+        wrap.className = "who";
+        if (m.avatarUrl) {
+          var img = document.createElement("img");
+          img.src = m.avatarUrl;
+          img.alt = "";
+          wrap.appendChild(img);
+        }
+        var name = document.createElement("span");
+        name.textContent = m.username || m.id;
+        wrap.appendChild(name);
+        who.appendChild(wrap);
+        tr.appendChild(who);
+
+        tr.appendChild(cell(m.rank ? m.rank.name : "—"));
+        tr.appendChild(cell(m.faction || "—"));
+        tr.appendChild(cell(m.donorTier || "—"));
+        tr.appendChild(cell(m.sponsor ? "Sponsor" : "—"));
+        tr.appendChild(cell(m.staff ? (m.staffRoles || []).join(", ") || "Staff" : "—"));
+        tr.appendChild(cell(m.linkedAt ? new Date(m.linkedAt).toLocaleDateString() : "—"));
+        body.appendChild(tr);
+      });
+      document.getElementById("roster-count").textContent =
+        members.length + (members.length === 1 ? " linked member" : " linked members") +
+        " · roles as of each member's last sign-in.";
+      show("wrap");
+    })
+    .catch(function (e) {
+      fail(e.message || "Could not reach the account service.");
+    });
+})();
+</script>
+</body>
+</html>

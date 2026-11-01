@@ -178,3 +178,10 @@ footer{padding:28px 0;color:var(--faint);font-size:13px}
 .rank b{display:block;font-family:'Antonio',sans-serif;font-size:22px;text-transform:uppercase}
 .rank span{color:var(--gold);font-weight:800;font-size:13px;letter-spacing:.1em}
 @media(max-width:960px){.spec-grid,.worlds,.rule-list,.modlist{grid-template-columns:1fr}.pagehero h1{font-size:44px}}
+
+/* Discord login buttons (site accounts — js/auth.js) */
+.btn.discord-login{background:#5865F2;color:#fff;box-shadow:0 8px 26px rgba(88,101,242,.35)}
+.btn.discord-login:hover{background:#4752C4}
+.btn.discord-login.is-inactive{background:#23262b;color:#8b949d;box-shadow:none}
+.nav-links a.discord-login{color:#fff}
+.nav-links a.discord-login.is-inactive{color:#8b949d}

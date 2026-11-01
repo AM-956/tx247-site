@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Account — TX247 Galactic Coalition</title>
+<link rel="stylesheet" href="styles-v5.css">
+<style>
+  .acct-head{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-bottom:26px}
+  .acct-head img{width:96px;height:96px;border-radius:50%;object-fit:cover;border:3px solid var(--cyan);box-shadow:0 0 30px rgba(34,211,238,.35)}
+  .acct-head .who{font-family:'Antonio',sans-serif;font-size:40px;line-height:1.02;text-transform:uppercase}
+  .acct-head .sub{color:var(--faint);font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-top:6px}
+  .tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+  .statebox{max-width:640px}
+</style>
+</head>
+<body>
+<div class="mockbar">Design Mockup v5 — full site draft · not live</div>
+
+<nav><div class="wrap nav-in">
+  <a class="brand" href="index.html"><img src="img/logo.jpg" alt="TX247 logo"><span><span class="bt">TX247</span><small>Galactic Coalition</small></span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="lore.html">Lore</a>
+    <a href="factions.html">Factions</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="rules.html">Rules</a>
+    <a href="ships.html">Ships</a>
+    <a href="shop.html">Shop</a>
+    <a href="sponsor.html">Sponsor</a>
+    <a class="btn discord-login" href="how-it-works.html#website-accounts" style="padding:9px 20px">Login with Discord</a>
+    <a class="btn" href="#" style="padding:9px 20px">Join Discord</a>
+  </div>
+</div></nav>
+
+<div class="pagehero"><div class="wrap">
+  <div class="kickerline">Website Account</div>
+  <h1>Your account</h1>
+  <p>Your TX247 website account <b>is</b> your Discord account. Your rank, faction, donor tier and Sponsor status are read straight from your roles in the TX247 Discord — no separate profile to keep up.</p>
+</div></div>
+
+<section><div class="wrap">
+
+  <div id="acct-loading" class="statebox">
+    <div class="step"><h3>Checking your session…</h3><p>One moment — verifying your sign-in with the account service.</p></div>
+  </div>
+
+  <div id="acct-inactive" class="statebox" style="display:none">
+    <div class="step"><h3>Linking opens at relaunch</h3><p>Website accounts are Discord accounts — linking opens at relaunch; your server rank, faction and donor tier come with you. Until then, everything runs through the Discord itself.</p><p style="margin-top:12px"><a class="btn ghost" href="how-it-works.html#website-accounts">How accounts will work</a></p></div>
+  </div>
+
+  <div id="acct-out" class="statebox" style="display:none">
+    <div class="step"><h3>You're not signed in</h3><p>Sign in with the Discord account you use in the TX247 server and this page becomes your service record.</p><p style="margin-top:14px"><a class="btn discord-login" href="how-it-works.html#website-accounts">Login with Discord</a></p></div>
+  </div>
+
+  <div id="acct-error" class="statebox" style="display:none">
+    <div class="step"><h3>Sign-in hit a snag</h3><p id="acct-error-msg">Something went wrong.</p><p style="margin-top:14px"><a class="btn discord-login" href="how-it-works.html#website-accounts">Try logging in again</a></p></div>
+  </div>
+
+  <div id="acct-profile" style="display:none">
+    <div class="acct-head">
+      <img id="pf-avatar" src="img/logo.jpg" alt="Your Discord avatar">
+      <div>
+        <div class="who" id="pf-name">Commander</div>
+        <div class="sub" id="pf-sub">TX247 Galactic Coalition</div>
+        <div class="tagrow" id="pf-tags"></div>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="step"><h3>⭐ Rank</h3><p id="pf-rank">—</p></div>
+      <div class="step"><h3>🚩 Faction</h3><p id="pf-faction">—</p></div>
+      <div class="step"><h3>💠 Donor tier</h3><p id="pf-tier">—</p></div>
+      <div class="step"><h3>🛰️ Sponsor</h3><p id="pf-sponsor">—</p></div>
+    </div>
+    <p class="note" id="pf-note" style="margin-top:18px"></p>
+    <p style="margin-top:16px">
+      <a class="btn ghost" id="pf-roster" href="roster.html" style="display:none">Crew roster (staff)</a>
+      <button class="btn ghost" id="acct-logout" type="button">Sign out</button>
+    </p>
+  </div>
+
+  <noscript><p class="note" style="margin-top:18px">Website accounts need JavaScript for the Discord sign-in handshake.</p></noscript>
+</div></section>
+
+<div class="earthband"></div>
+<footer><div class="wrap foot">
+  <div>© 2026 TX247 Galactic Coalition · Established 2016. A fan-run community server.</div>
+  <div>Not affiliated with Keen Software House. Space Engineers is a trademark of Keen Software House.</div>
+</div></footer>
+
+<script src="js/auth-config.js"></script>
+<script src="js/auth.js"></script>
+<script>
+(function () {
+  "use strict";
+  var cfg = window.TX247_AUTH || {};
+  var PANELS = ["loading", "inactive", "out", "error", "profile"];
+  var FACTION_NAMES = {
+    GDC: "Galactic Defense Coalition",
+    TRF: "The Red Federation",
+    DIG: "Denarian Industrial Group",
+    MPE: "Minmatar Pirate Empire"
+  };
+
+  function show(id) {
+    PANELS.forEach(function (p) {
+      var el = document.getElementById("acct-" + p);
+      if (el) el.style.display = p === id ? "" : "none";
+    });
+  }
+  function fail(msg) {
+    document.getElementById("acct-error-msg").textContent = msg;
+    show("error");
+  }
+
+  if (!cfg.clientId || !cfg.apiBase) {
+    show("inactive");
+    return;
+  }
+  var api = cfg.apiBase.replace(/\/+$/, "");
+
+  function render(me) {
+    if (me.avatarUrl) document.getElementById("pf-avatar").src = me.avatarUrl;
+    document.getElementById("pf-name").textContent = me.username || "Unknown";
+    document.getElementById("pf-sub").textContent = me.inGuild
+      ? "TX247 Galactic Coalition — member"
+      : "Signed in — not a TX247 Discord member yet";
+
+    var tags = document.getElementById("pf-tags");
+    tags.innerHTML = "";
+    (me.roles || []).forEach(function (name) {
+      var s = document.createElement("span");
+      s.className = "tag";
+      s.textContent = name;
+      tags.appendChild(s);
+    });
+    if (me.staff) {
+      var st = document.createElement("span");
+      st.className = "tag";
+      st.textContent = "Staff";
+      tags.appendChild(st);
+    }
+
+    document.getElementById("pf-rank").textContent = me.rank
+      ? me.rank.name + " — MEE6 level " + me.rank.level + " on the community ladder."
+      : "No rank yet — activity in the Discord climbs the ladder: Ensign at level 5, Admiral at 30.";
+    document.getElementById("pf-faction").textContent = me.faction
+      ? me.faction + " — " + (FACTION_NAMES[me.faction] || me.faction) + ". Loyalty is permanent; wear it well."
+      : "Independent — no faction role. Pick a side at the in-game Faction screen, or stay neutral with all four.";
+    document.getElementById("pf-tier").textContent = me.donorTier
+      ? me.donorTier + " — cumulative Coalition supporter. Thank you for keeping the lights on."
+      : "No donor tier yet — commissions and credit packs on the Shop page start the climb.";
+    document.getElementById("pf-sponsor").textContent = me.sponsor
+      ? "Active Sponsor — role held in Discord. Stipend, pack discount and priority slot apply."
+      : "Not a Sponsor — see the Sponsor page for the membership that funds the server.";
+
+    var note = "";
+    if (me.linkedAt) {
+      note = "Account linked " + new Date(me.linkedAt).toLocaleDateString() +
+        ". Roles are read from the TX247 Discord at sign-in — if your roles change, sign out and back in to refresh them here.";
+    }
+    document.getElementById("pf-note").textContent = note;
+    if (me.staff) document.getElementById("pf-roster").style.display = "";
+    show("profile");
+  }
+
+  function loadMe() {
+    return fetch(api + "/api/me", { credentials: "include" })
+      .then(function (r) {
+        if (r.status === 401) {
+          show("out");
+          return null;
+        }
+        if (!r.ok) throw new Error("The account service returned " + r.status + ".");
+        return r.json();
+      })
+      .then(function (me) {
+        if (me) render(me);
+      })
+      .catch(function (e) {
+        fail(e.message || "Could not reach the account service.");
+      });
+  }
+
+  var params = new URLSearchParams(window.location.search);
+  var code = params.get("code");
+  if (code) {
+    // Returning from Discord: verify state BEFORE the code leaves the page.
+    var returnedState = params.get("state") || "";
+    var savedState = "";
+    try {
+      savedState = sessionStorage.getItem("tx247_oauth_state") || "";
+      sessionStorage.removeItem("tx247_oauth_state");
+    } catch (e) {}
+    window.history.replaceState(null, "", window.location.pathname);
+    if (!savedState || returnedState !== savedState) {
+      fail("The sign-in check failed (state mismatch) — this can happen if the login tab was left open too long. Please try logging in again.");
+    } else {
+      fetch(api + "/auth/discord/callback", {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code: code, state: returnedState })
+      })
+        .then(function (r) {
+          return r.json().then(function (j) {
+            if (!r.ok) throw new Error(j.error || "Sign-in failed (" + r.status + ").");
+            return j;
+          });
+        })
+        .then(function () {
+          loadMe();
+        })
+        .catch(function (e) {
+          fail(e.message || "Discord sign-in failed.");
+        });
+    }
+  } else if (params.get("error")) {
+    fail("Discord sign-in was cancelled or denied. Nothing was linked.");
+  } else {
+    loadMe();
+  }
+
+  document.getElementById("acct-logout").addEventListener("click", function () {
+    fetch(api + "/auth/logout", { method: "POST", credentials: "include" })
+      .catch(function () {})
+      .then(function () {
+        show("out");
+      });
+  });
+})();
+</script>
+</body>
+</html>
