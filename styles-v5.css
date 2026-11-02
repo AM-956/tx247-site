@@ -198,5 +198,3 @@ footer{padding:28px 0;color:var(--faint);font-size:13px}
   .nav-links::-webkit-scrollbar{display:none}
   .nav-links a{white-space:nowrap;flex:0 0 auto}
 }
-.dawnmark{height:34px;width:auto;display:block;flex:0 0 auto}
-@media (max-width:920px){.dawnmark{height:28px !important}}
