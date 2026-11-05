@@ -4,26 +4,48 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TX247 Galactic Coalition — Server LIVE</title>
-<link rel="stylesheet" href="styles-v5.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="css/nav.css">
 </head>
 <body>
 
-<nav><div class="wrap nav-in">
-  <a class="brand" href="index.html"><img src="img/logo.jpg" alt="TX247 logo"><span><span class="bt">TX247</span><small>Galactic Coalition</small></span></a>
-  <div class="nav-links">
-    <a href="index.html" class="on">Home</a>
-    <a href="lore.html">Lore</a>
-    <a href="factions.html">Factions</a>
-    <a href="how-it-works.html">How It Works</a>
-    <a href="rules.html">Rules</a>
-    <a href="bounties.html">Bounties</a> <a href="briefing/">Briefing</a>
-    <a href="ships.html">Ships</a>
-    <a href="shop.html">Support</a>
-    <a href="sponsor.html">Sponsor</a>
-    <a class="btn discord-login" href="how-it-works.html#website-accounts" style="padding:9px 20px">Login with Discord</a>
-    <a class="btn" href="https://discord.gg/t7ATgXxg2k" style="padding:9px 20px">Join Discord</a>
-  </div>
-</div></nav>
+<header class="tx-nav" id="txNav">
+ <div class="tx-nav-in">
+  <a class="tx-brand" href="index.html"><img src="img/logo.jpg" alt="TX247 logo"><span><span class="tx-bt">TX247</span><small>Galactic Coalition</small></span></a>
+  <button class="tx-burger" type="button" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <nav class="tx-menu" aria-label="Site">
+   <a class="tx-link on" aria-current="page" href="index.html">Home</a>
+   <div class="tx-dd"><button class="tx-dd-btn" type="button" aria-haspopup="true" aria-expanded="false">Play <span class="tx-caret" aria-hidden="true">▾</span></button>
+    <div class="tx-dd-menu">
+     <a href="how-it-works.html">How It Works<small>Join, worlds, the Living Sky</small></a>
+     <a href="rules.html">Rules<small>PvP law, economy, conduct</small></a>
+     <a href="briefing/">Briefing<small>Comms audio terminal</small></a>
+    </div></div>
+   <div class="tx-dd"><button class="tx-dd-btn" type="button" aria-haspopup="true" aria-expanded="false">World <span class="tx-caret" aria-hidden="true">▾</span></button>
+    <div class="tx-dd-menu">
+     <a href="factions.html">Factions<small>The four powers</small></a>
+     <a href="ships.html">Ships<small>Supporter commissions</small></a>
+     <a href="lore.html">Lore<small>The story so far</small></a>
+    </div></div>
+   <div class="tx-dd"><button class="tx-dd-btn" type="button" aria-haspopup="true" aria-expanded="false">Boards <span class="tx-caret" aria-hidden="true">▾</span></button>
+    <div class="tx-dd-menu">
+     <a href="bounties.html">Wanted Board<small>Who the Coalition hunts</small></a>
+     <a href="roster.html">Crew Roster<small>Linked members · staff</small></a>
+    </div></div>
+   <div class="tx-dd"><button class="tx-dd-btn" type="button" aria-haspopup="true" aria-expanded="false">Support <span class="tx-caret" aria-hidden="true">▾</span></button>
+    <div class="tx-dd-menu">
+     <a href="shop.html">Support Packs<small>Space Credits, thank-you gifts</small></a>
+     <a href="sponsor.html">Sponsor<small>Membership, from $9.99/mo</small></a>
+     <a href="account.html">Your Account<small>Rank, faction, tier</small></a>
+    </div></div>
+   <span class="tx-actions">
+    <a class="tx-btn discord-login" href="how-it-works.html#website-accounts">Login with Discord</a>
+    <a class="tx-btn tx-btn-join" href="https://discord.gg/t7ATgXxg2k">Join Discord</a>
+   </span>
+  </nav>
+ </div>
+ <noscript><style>.tx-menu{display:flex!important}.tx-dd-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;display:block}.tx-burger{display:none!important}</style></noscript>
+</header>
 
 <header class="hero"><div class="stars"></div><div class="planet"></div><div class="wrap">
   <div class="hero-grid">
@@ -50,93 +72,72 @@
 </div></header>
 
 <section><div class="wrap">
-  <div class="split">
-    <div class="visual space"><img src="img/art-station.jpg" alt="Orbital station ring in orbit above a lush blue-green planet"></div>
-    <div>
-      <div class="kickerline">About TX247</div>
-      <h2>About TX247</h2>
-      <p>TX247's Galactic Coalition Series provides a top quality Space Engineers dedicated server with a small, friendly community of gamers.</p>
-      <p>Established in <b>2013</b>, TX247 strives to provide the best server experience possible as we continue to expand our player base and embark on a new adventure in the stars.</p>
-      <p>Three worlds — <b>Earthlike, Pertam and Europa</b> — four factions, one resource law: <b>uranium and platinum live only on Europa</b>, and asteroids are gravel. Mining happens on planets. War happens over freight.</p>
-      <p><b>Join us today and enjoy the journey!</b></p>
-      <a class="btn" href="how-it-works.html">Read the guide</a>
-    </div>
+  <div class="sec-head">
+    <div class="kickerline">Start Here</div>
+    <h2>Three ways in</h2>
+    <p>Established <b>2013</b> — a small, friendly Space Engineers community flying three worlds, four factions, and one resource law: <b>uranium and platinum live only on Europa</b>. Everything on this site hangs off three doors:</p>
   </div>
-</div></section>
-
-<section class="alt"><div class="wrap">
-  <div class="split" style="margin-bottom:44px">
-    <div>
-      <div class="kickerline">Role-Play Factions</div>
-      <h2>Your Role<br>Your <span class="red">Faction</span><br>Your Way</h2>
-      <p>Come experience something different and carve your own path. Join one of the four powers in game — or fly independent and stay neutral with all of them.</p>
-      <p>Faction loyalty is <b>permanent</b>. Choose like it matters — because it does.</p>
-      <a class="btn red" href="factions.html">Meet the factions</a>
-    </div>
-    <div class="visual neon"><img src="img/art-fleet.jpg" alt="Four faction warship fleets maneuvering in a nebula"></div>
-  </div>
-  <div class="factions">
-    <div class="fcard dig">
-      <div class="art"><img src="img/dig.png" alt="Denarian Industrial Group emblem"></div>
-      <h3>Denarian Industrial Group</h3>
-      <span class="tag">PvE · The Miners</span>
-      <p>The sector's fuel supply with a flag. DIG mines, refines, and sells to everyone.</p>
-      <div class="motto">"Be a miner, be a legend, be the future."</div>
-    </div>
-    <div class="fcard mpe">
-      <div class="art"><img src="img/mpe.png" alt="Minmatar Pirate Empire emblem"></div>
-      <h3>Minmatar Pirate Empire</h3>
-      <span class="tag">PvP · The Pirates</span>
-      <p>No state, no truce, no protected lanes. Permanently flagged — a target in every sky.</p>
-      <div class="motto">"No rules, no mercy, no stopping."</div>
-    </div>
-    <div class="fcard gdc">
-      <div class="art"><img src="img/gdc.jpg" alt="Galactic Defense Coalition emblem"></div>
-      <h3>Galactic Defense Coalition</h3>
-      <span class="tag">PvPvE · The Peacekeepers</span>
-      <p>The law of Protected Space: patrols, ports, and a Fighter Corps that answers distress calls.</p>
-      <div class="motto">"The line holds."</div>
-    </div>
-    <div class="fcard trf">
-      <div class="art"><img src="img/trf.png" alt="The Red Federation emblem"></div>
-      <h3>The Red Federation</h3>
-      <span class="tag">PvPvE · The Exiles</span>
-      <p>Exiled rebels turned nation-builders on Pertam, fighting to win back a home called Earth.</p>
-      <div class="motto">"Together we fight, together we prosper."</div>
-    </div>
-  </div>
-</div></section>
-
-<section><div class="wrap">
-  <div class="split">
-    <div>
-      <div class="kickerline">The Shipyard &amp; Support</div>
-      <h2>Ships, credits,<br>one honest rate</h2>
-      <p>Supporters commission warships by class — <b>Scout $4 to Flagship $35</b> — and receive Space Credits as a thank-you. One rate everywhere: <b>10,000,000 SC = $1</b>.</p>
-      <p>Supporter packs from <b>$20 (220M SC)</b>, the Starter Pack at <b>$10</b> with two ships included, and Sponsor memberships from <b>$9.99/mo</b>.</p>
-      <a class="btn gold" href="shop.html">Support TX247</a>
-      <a class="btn ghost" href="ships.html" style="margin-left:8px">See supporter commissions</a>
-    </div>
-    <div class="visual warm"><img src="img/art-launch.jpg" alt="Armored warship lifting off from a planetary shipyard at dusk"></div>
-  </div>
-</div></section>
-
-<section class="alt"><div class="wrap">
-  <div class="split">
-    <div>
-      <div class="kickerline">The Director · Live Now</div>
-      <h2>The Living Sky</h2>
-      <p>TX247 doesn't run an empty sandbox with a chat box. Our server-side Director <b>keeps all four factions on the air</b> around you — GDC patrols working the lanes over Earth, DIG convoys calling their runs in the frontier, Federation traffic over Pertam, and the Wake, the MPE fleet channel, saying the quiet part out loud. Wherever you fly, the sky has traffic. The traffic has opinions.</p>
-      <p>And it answers. Announce yourself to a GDC patrol and you're logged and waved through — hail the Federation, talk to DIG Dispatch, test the pirates' sense of humor. Every exchange is kept: <b>your standing with each faction</b> moves on what you do and say, and the world treats you accordingly the next time you cross its sky.</p>
-      <p>It's wired into the stations, too. Docking runs through traffic control, not hope: hail Port Authority, get <b>a real pad and a window</b>, and the board holds it for you. Petram Control, DIG Dispatch and the Wake run their own docks their own way — and the Anchorage asks no questions, ever. It just remembers who didn't bring a gift.</p>
-      <p>And in GDC Protected Space, it answers trouble. Weapons fire over Earth — or one call, <b>!911</b> (or <b>!mayday</b>) — and Port Authority scrambles a quick-reaction wing to the fight, announced on comms as it launches — and if that wing falls, a heavier one launches behind it. The sky doesn't just talk. <b>It shows up.</b></p>
-      <p><b>Most servers give you ships. Ours talks back.</b></p>
-      <div>
-        <span class="connect-chip"><span class="lbl">Connect</span> 191.101.30.133:29016</span>
-        <a class="btn ghost" href="how-it-works.html" style="margin-left:8px">Hear how it works</a>
+  <div class="paths">
+    <div class="path-card">
+      <div class="picon">🚀</div>
+      <h3>Join the fight</h3>
+      <p>Get in game in minutes — connect on PC or console, pick a faction (or fly independent), and hear the law in your ears on the comms briefing before your first patrol.</p>
+      <div class="plinks">
+        <a href="how-it-works.html">How it works</a>
+        <a href="briefing/">Comms briefing</a>
       </div>
     </div>
-    <div class="visual space"><img src="img/art-comms.jpg" alt="Traffic-control station with glowing comms arrays guiding ships on approach"></div>
+    <div class="path-card">
+      <div class="picon">⚖️</div>
+      <h3>Learn the law</h3>
+      <p>Protected Space, PvP flags, bounties and wanted stars — TX247 runs a real Rules of Engagement, and crimes post real prices. Know it before you fly it.</p>
+      <div class="plinks">
+        <a href="rules.html">The rules</a>
+        <a href="bounties.html">Wanted board</a>
+      </div>
+    </div>
+    <div class="path-card">
+      <div class="picon">💛</div>
+      <h3>Support the server</h3>
+      <p>TX247 runs on its supporters. Packs and sponsorships fund hosting and upkeep — Space Credits and ships come back in game as thank-you gifts, never purchased power.</p>
+      <div class="plinks">
+        <a href="shop.html">Support packs</a>
+        <a href="sponsor.html">Sponsor</a>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <div class="sec-head">
+    <div class="kickerline">Right Now</div>
+    <h2>On the board &amp; in the sky</h2>
+  </div>
+  <div class="hl-grid">
+    <div class="hl-panel">
+      <div class="hl-kick">GDC Port Authority</div>
+      <h3>Wanted Board</h3>
+      <div id="hl-board"><p class="hl-empty">Reading the board…</p></div>
+      <p class="hl-more"><a href="bounties.html">See the full board →</a></p>
+    </div>
+    <div class="hl-panel">
+      <div class="hl-kick">Choose Your Side</div>
+      <h3>Four flags. No changing sides.</h3>
+      <ul class="mini-fac">
+        <li><a href="factions.html"><img src="img/gdc.jpg" alt="GDC emblem"><span><span class="mf-name">GDC</span><span class="mf-tag">PvPvE · The Law</span></span></a></li>
+        <li><a href="factions.html"><img src="img/trf.png" alt="TRF emblem"><span><span class="mf-name">The Red Federation</span><span class="mf-tag">PvPvE · The Exiles</span></span></a></li>
+        <li><a href="factions.html"><img src="img/dig.png" alt="DIG emblem"><span><span class="mf-name">DIG</span><span class="mf-tag">PvE · The Miners</span></span></a></li>
+        <li><a href="factions.html"><img src="img/mpe.png" alt="MPE emblem"><span><span class="mf-name">MPE</span><span class="mf-tag">PvP · The Pirates</span></span></a></li>
+      </ul>
+      <p class="hl-more"><a href="factions.html">Meet the factions →</a></p>
+    </div>
+    <div class="hl-panel">
+      <div class="hl-kick">The Director · Live Now</div>
+      <h3>The Living Sky</h3>
+      <p>TX247 doesn't run an empty sandbox with a chat box. Our server-side Director keeps all four factions on the air around you — patrols, convoys, pirate traffic — and it remembers your standing with each of them.</p>
+      <p>Start a fight over Earth, or call <b>!911</b>, and the GDC scrambles a quick-reaction wing to you. <b>Most servers give you ships. Ours talks back.</b></p>
+      <p class="hl-more"><a href="how-it-works.html#living-sky">Hear how it works →</a></p>
+    </div>
   </div>
 </div></section>
 
@@ -153,5 +154,68 @@
 </div></footer>
 <script src="js/auth-config.js"></script>
 <script src="js/auth.js"></script>
+<script src="js/site.js"></script>
+<script>
+/* Homepage highlights: top of the wanted board, from the same snapshot
+   the board page reads. Fails silently to the lawful-sky text. */
+(function () {
+  var box = document.getElementById('hl-board');
+  if (!box) return;
+  function fmtSc(n) {
+    var v = Number(n);
+    return isFinite(v) ? v.toLocaleString('en-US') + ' SC' : String(n);
+  }
+  function pick(row, keys) {
+    for (var i = 0; i < keys.length; i++) {
+      if (row[keys[i]] !== undefined && row[keys[i]] !== null) return row[keys[i]];
+    }
+    return undefined;
+  }
+  fetch('bounties-snapshot.json', { cache: 'no-store' })
+    .then(function (res) { if (!res.ok) throw new Error('no snapshot'); return res.json(); })
+    .then(function (data) {
+      var rows = (data && Array.isArray(data.wanted)) ? data.wanted.slice(0, 3) : [];
+      box.innerHTML = '';
+      if (!rows.length) {
+        var p = document.createElement('p');
+        p.className = 'hl-empty';
+        p.textContent = 'No pilots wanted. The sky is lawful — for now.';
+        box.appendChild(p);
+      } else {
+        var ul = document.createElement('ul');
+        ul.className = 'hl-wanted';
+        rows.forEach(function (row) {
+          var li = document.createElement('li');
+          var stars = Math.max(0, Math.min(5, Math.floor(Number(pick(row, ['stars', 'Stars'])) || 0)));
+          var s = document.createElement('span');
+          s.className = 'stars';
+          s.textContent = stars ? new Array(stars + 1).join('★') : '—';
+          var who = document.createElement('span');
+          who.className = 'who';
+          who.textContent = String(pick(row, ['name', 'Name', 'displayName', 'pilot']) || 'Unknown pilot');
+          var amt = document.createElement('span');
+          amt.className = 'amt';
+          amt.textContent = fmtSc(pick(row, ['bounty', 'Bounty', 'bountySc', 'amount']) || 0);
+          li.appendChild(s); li.appendChild(who); li.appendChild(amt);
+          ul.appendChild(li);
+        });
+        box.appendChild(ul);
+      }
+      if (data && data.generatedUtc) {
+        var stamp = document.createElement('p');
+        stamp.className = 'hl-stamp';
+        stamp.textContent = 'Board as of ' + data.generatedUtc + ' (UTC)';
+        box.appendChild(stamp);
+      }
+    })
+    .catch(function () {
+      box.innerHTML = '';
+      var p = document.createElement('p');
+      p.className = 'hl-empty';
+      p.textContent = 'No pilots wanted. The sky is lawful — for now.';
+      box.appendChild(p);
+    });
+})();
+</script>
 </body>
 </html>

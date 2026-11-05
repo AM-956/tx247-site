@@ -4,48 +4,95 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rules — TX247 Galactic Coalition</title>
-<link rel="stylesheet" href="styles-v5.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="css/nav.css">
 </head>
 <body>
 
-<nav><div class="wrap nav-in">
-  <a class="brand" href="index.html"><img src="img/logo.jpg" alt="TX247 logo"><span><span class="bt">TX247</span><small>Galactic Coalition</small></span></a>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="lore.html">Lore</a>
-    <a href="factions.html">Factions</a>
-    <a href="how-it-works.html">How It Works</a>
-    <a href="rules.html" class="on">Rules</a>
-    <a href="bounties.html">Bounties</a> <a href="briefing/">Briefing</a>
-    <a href="ships.html">Ships</a>
-    <a href="shop.html">Support</a>
-    <a href="sponsor.html">Sponsor</a>
-    <a class="btn discord-login" href="how-it-works.html#website-accounts" style="padding:9px 20px">Login with Discord</a>
-    <a class="btn" href="https://discord.gg/t7ATgXxg2k" style="padding:9px 20px">Join Discord</a>
-  </div>
-</div></nav>
+<header class="tx-nav" id="txNav">
+ <div class="tx-nav-in">
+  <a class="tx-brand" href="index.html"><img src="img/logo.jpg" alt="TX247 logo"><span><span class="tx-bt">TX247</span><small>Galactic Coalition</small></span></a>
+  <button class="tx-burger" type="button" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <nav class="tx-menu" aria-label="Site">
+   <a class="tx-link" href="index.html">Home</a>
+   <div class="tx-dd"><button class="tx-dd-btn grp-on" type="button" aria-haspopup="true" aria-expanded="false">Play <span class="tx-caret" aria-hidden="true">▾</span></button>
+    <div class="tx-dd-menu">
+     <a href="how-it-works.html">How It Works<small>Join, worlds, the Living Sky</small></a>
+     <a class="on" aria-current="page" href="rules.html">Rules<small>PvP law, economy, conduct</small></a>
+     <a href="briefing/">Briefing<small>Comms audio terminal</small></a>
+    </div></div>
+   <div class="tx-dd"><button class="tx-dd-btn" type="button" aria-haspopup="true" aria-expanded="false">World <span class="tx-caret" aria-hidden="true">▾</span></button>
+    <div class="tx-dd-menu">
+     <a href="factions.html">Factions<small>The four powers</small></a>
+     <a href="ships.html">Ships<small>Supporter commissions</small></a>
+     <a href="lore.html">Lore<small>The story so far</small></a>
+    </div></div>
+   <div class="tx-dd"><button class="tx-dd-btn" type="button" aria-haspopup="true" aria-expanded="false">Boards <span class="tx-caret" aria-hidden="true">▾</span></button>
+    <div class="tx-dd-menu">
+     <a href="bounties.html">Wanted Board<small>Who the Coalition hunts</small></a>
+     <a href="roster.html">Crew Roster<small>Linked members · staff</small></a>
+    </div></div>
+   <div class="tx-dd"><button class="tx-dd-btn" type="button" aria-haspopup="true" aria-expanded="false">Support <span class="tx-caret" aria-hidden="true">▾</span></button>
+    <div class="tx-dd-menu">
+     <a href="shop.html">Support Packs<small>Space Credits, thank-you gifts</small></a>
+     <a href="sponsor.html">Sponsor<small>Membership, from $9.99/mo</small></a>
+     <a href="account.html">Your Account<small>Rank, faction, tier</small></a>
+    </div></div>
+   <span class="tx-actions">
+    <a class="tx-btn discord-login" href="how-it-works.html#website-accounts">Login with Discord</a>
+    <a class="tx-btn tx-btn-join" href="https://discord.gg/t7ATgXxg2k">Join Discord</a>
+   </span>
+  </nav>
+ </div>
+ <noscript><style>.tx-menu{display:flex!important}.tx-dd-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;display:block}.tx-burger{display:none!important}</style></noscript>
+</header>
 
 <div class="pagehero"><div class="wrap">
   <div class="kickerline">Server Law</div>
   <h1>The rules</h1>
-  <p>The essentials, in plain language. TX247 runs a mature rules canon — 18 in-game rules plus the Rules of Engagement — and this page is the readable summary. Staff rulings follow the full canon in Discord.</p>
+  <p>The essentials, in plain language. TX247 runs a mature rules canon — 18 in-game rules plus the Rules of Engagement — and this page is the readable summary. Staff rulings follow the full canon in Discord. Pick a tab:</p>
 </div></div>
 
 <section><div class="wrap">
-  <div class="rule-list">
-    <div class="rule"><h3><span class="rn">01</span>Grid cap: 130,000 PCU</h3><p>No single grid over <b>130,000 PCU</b> — the same cap as the shipyard's Flagship class. Oversized grids get removed. Store spare ships at a Services Terminal instead of parking the whole fleet in the sky.</p></div>
-    <div class="rule"><h3><span class="rn">02</span>Shared Inertia Tensor is banned</h3><p>No Shared Inertia Tensor on pistons/rotors/hinges, anywhere, no exceptions. It's a physics exploit and it comes off on sight.</p></div>
-    <div class="rule"><h3><span class="rn">03</span>Know your mode</h3><p>Every faction flies its tag: <b>GDC</b> PvPvE (PvP is duty only), <b>TRF</b> PvPvE (frontier raids and wars), <b>DIG</b> PvE (protected), <b>MPE</b> PvP (permanently flagged). Independents start neutral with all four. The <a href="factions.html">Factions page</a> spells out what each tag means.</p></div>
-    <div class="rule"><h3><span class="rn">04</span>Protected Space is protected</h3><p>Earth orbit is <b>GDC Protected Space</b>: no lawful weapons fire at all. Shots fired there are a crime — expect a standing hit, a bounty, and a Fighter Corps response.</p></div>
-    <div class="rule"><h3><span class="rn">05</span>DIG flies protected</h3><p>DIG members can't be lawfully attacked — <b>except</b> when running a frontier convoy contract, which opens a temporary risk window for that run only. Attacking protected DIG outside that window is a bountied crime.</p></div>
-    <div class="rule"><h3><span class="rn">06</span>MPE is always fair game</h3><p>MPE pilots are permanently flagged: lawful targets in any sky (safe zones still block damage). Shooting pirates is never a crime — it can earn you GDC and DIG standing.</p></div>
-    <div class="rule"><h3><span class="rn">07</span>Surrender must be accepted</h3><p>A surrender offered in a fight <b>must be accepted</b>. Continuing to fire on a surrendered ship is a rules violation, not a victory.</p></div>
-    <div class="rule"><h3><span class="rn">08</span>Raid spacing: 8 days</h3><p>Raids follow the canon spacing — the same target doesn't get hit back-to-back. The full Rules of Engagement in Discord carry the detailed spacing, switching and declaration rules.</p></div>
-    <div class="rule"><h3><span class="rn">09</span>No PvE↔PvP switching tricks</h3><p>Mode switching to dodge consequences — flagging off to escape a fight you started, or hiding behind a protected tag — is restricted under the RoE. Your tag is your word. Set your flag in chat with <b>!tx247 pvp on</b> / <b>off</b> — it locks while your combat timer runs (5 minutes after your last fight). <b>!tx247 who</b> lists flagged pilots; <b>!tx247 bounties</b> shows the bounty board. Crimes also raise <b>wanted stars</b> on your name — and running doesn't clear them: escape a response and the escape is recorded beside the crime. Wanted stars never expire on a timer while you fly. Settle the tab by paying your fine with <b>!tx247 payfine</b> — or wait for a hunter to collect it the hard way. The one write-off: go dark for <b>fourteen straight days</b> with the fine unpaid and the Coalition clears the bounty, the fine and your name from the board — but an escape recorded beside the crime stays on your record for good.</p></div>
-    <div class="rule"><h3><span class="rn">10</span>Salvage is legal</h3><p>Wrecks and derelicts are fair salvage for anyone. Claimed, owned, active grids are not — that's theft or an act of war, depending on the flag.</p></div>
-    <div class="rule"><h3><span class="rn">11</span>Deliveries &amp; losses</h3><p>Staff are <b>not responsible</b> for delivered grids lost, stolen or destroyed in gameplay after delivery — except verified server-fault losses, which are restored from backup with a ticket and proof. Every commission is backed up at delivery.</p></div>
-    <div class="rule"><h3><span class="rn">12</span>Staff word &amp; tickets</h3><p>Disputes go through tickets, not grid-side arguments. Staff rulings follow the canon; abuse of staff, exploits, and chargebacks (which void delivered goods) end in removal.</p></div>
+ <div data-tabs>
+  <div class="tab-bar" role="tablist" aria-label="Rule categories">
+    <button class="tab-btn on" type="button" role="tab" id="tabbtn-pvp" aria-controls="tab-pvp" aria-selected="true" data-tab="tab-pvp">PvP Law</button>
+    <button class="tab-btn" type="button" role="tab" id="tabbtn-world" aria-controls="tab-world" aria-selected="false" tabindex="-1" data-tab="tab-world">World &amp; Property</button>
+    <button class="tab-btn" type="button" role="tab" id="tabbtn-conduct" aria-controls="tab-conduct" aria-selected="false" tabindex="-1" data-tab="tab-conduct">Conduct &amp; Staff</button>
   </div>
+  <noscript><style>.tab-panel{display:block!important}.tab-bar{display:none}</style></noscript>
+
+  <div class="tab-panel on" role="tabpanel" id="tab-pvp" aria-labelledby="tabbtn-pvp">
+    <p class="tab-intro">How fighting works: your faction's mode, where fire is lawful, and what a crime costs. These are the Rules of Engagement in short form — the <a href="bounties.html">Wanted Board</a> is where breaking them ends up.</p>
+    <div class="rule-list">
+      <div class="rule"><h3><span class="rn">03</span>Know your mode</h3><p>Every faction flies its tag: <b>GDC</b> PvPvE (PvP is duty only), <b>TRF</b> PvPvE (frontier raids and wars), <b>DIG</b> PvE (protected), <b>MPE</b> PvP (permanently flagged). Independents start neutral with all four. The <a href="factions.html">Factions page</a> spells out what each tag means.</p></div>
+      <div class="rule"><h3><span class="rn">04</span>Protected Space is protected</h3><p>Earth orbit is <b>GDC Protected Space</b>: no lawful weapons fire at all. Shots fired there are a crime — expect a standing hit, a bounty, and a Fighter Corps response.</p></div>
+      <div class="rule"><h3><span class="rn">05</span>DIG flies protected</h3><p>DIG members can't be lawfully attacked — <b>except</b> when running a frontier convoy contract, which opens a temporary risk window for that run only. Attacking protected DIG outside that window is a bountied crime.</p></div>
+      <div class="rule"><h3><span class="rn">06</span>MPE is always fair game</h3><p>MPE pilots are permanently flagged: lawful targets in any sky (safe zones still block damage). Shooting pirates is never a crime — it can earn you GDC and DIG standing.</p></div>
+      <div class="rule"><h3><span class="rn">07</span>Surrender must be accepted</h3><p>A surrender offered in a fight <b>must be accepted</b>. Continuing to fire on a surrendered ship is a rules violation, not a victory.</p></div>
+      <div class="rule"><h3><span class="rn">08</span>Raid spacing: 8 days</h3><p>Raids follow the canon spacing — the same target doesn't get hit back-to-back. The full Rules of Engagement in Discord carry the detailed spacing, switching and declaration rules.</p></div>
+      <div class="rule"><h3><span class="rn">09</span>No PvE↔PvP switching tricks</h3><p>Mode switching to dodge consequences — flagging off to escape a fight you started, or hiding behind a protected tag — is restricted under the RoE. Your tag is your word. Set your flag in chat with <b>!tx247 pvp on</b> / <b>off</b> — it locks while your combat timer runs (5 minutes after your last fight). <b>!tx247 who</b> lists flagged pilots; <b>!tx247 bounties</b> shows the bounty board. Crimes also raise <b>wanted stars</b> on your name — and running doesn't clear them: escape a response and the escape is recorded beside the crime. Wanted stars never expire on a timer while you fly. Settle the tab by paying your fine with <b>!tx247 payfine</b> — or wait for a hunter to collect it the hard way. The one write-off: go dark for <b>fourteen straight days</b> with the fine unpaid and the Coalition clears the bounty, the fine and your name from the board — but an escape recorded beside the crime stays on your record for good.</p></div>
+    </div>
+  </div>
+
+  <div class="tab-panel" role="tabpanel" id="tab-world" aria-labelledby="tabbtn-world" hidden>
+    <p class="tab-intro">Grids, salvage and deliveries — what you can build, what you can take, and what staff will (and won't) replace.</p>
+    <div class="rule-list">
+      <div class="rule"><h3><span class="rn">01</span>Grid cap: 130,000 PCU</h3><p>No single grid over <b>130,000 PCU</b> — the same cap as the shipyard's Flagship class. Oversized grids get removed. Store spare ships at a Services Terminal instead of parking the whole fleet in the sky.</p></div>
+      <div class="rule"><h3><span class="rn">10</span>Salvage is legal</h3><p>Wrecks and derelicts are fair salvage for anyone. Claimed, owned, active grids are not — that's theft or an act of war, depending on the flag.</p></div>
+      <div class="rule"><h3><span class="rn">11</span>Deliveries &amp; losses</h3><p>Staff are <b>not responsible</b> for delivered grids lost, stolen or destroyed in gameplay after delivery — except verified server-fault losses, which are restored from backup with a ticket and proof. Every commission is backed up at delivery.</p></div>
+    </div>
+  </div>
+
+  <div class="tab-panel" role="tabpanel" id="tab-conduct" aria-labelledby="tabbtn-conduct" hidden>
+    <p class="tab-intro">Exploits and disputes — the short version is: don't, and take it to a ticket.</p>
+    <div class="rule-list">
+      <div class="rule"><h3><span class="rn">02</span>Shared Inertia Tensor is banned</h3><p>No Shared Inertia Tensor on pistons/rotors/hinges, anywhere, no exceptions. It's a physics exploit and it comes off on sight.</p></div>
+      <div class="rule"><h3><span class="rn">12</span>Staff word &amp; tickets</h3><p>Disputes go through tickets, not grid-side arguments. Staff rulings follow the canon; abuse of staff, exploits, and chargebacks (which void delivered goods) end in removal.</p></div>
+    </div>
+  </div>
+ </div>
+
   <p class="note">This is the distilled essentials page. The authoritative document is the full 18-rule canon + Rules of Engagement, kept in Discord and enforced in game. Season 1.</p>
 </div></section>
 
@@ -56,5 +103,6 @@
 </div></footer>
 <script src="js/auth-config.js"></script>
 <script src="js/auth.js"></script>
+<script src="js/site.js"></script>
 </body>
 </html>

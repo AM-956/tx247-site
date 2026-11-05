@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Coalition Comms — Pilot Briefing | TX247</title>
+<link rel="stylesheet" href="../css/nav.css">
 <style>
   :root{
     --bg:#000000;
@@ -273,6 +274,43 @@
 </style>
 </head>
 <body>
+<header class="tx-nav" id="txNav">
+ <div class="tx-nav-in">
+  <a class="tx-brand" href="../index.html"><img src="../img/logo.jpg" alt="TX247 logo"><span><span class="tx-bt">TX247</span><small>Galactic Coalition</small></span></a>
+  <button class="tx-burger" type="button" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <nav class="tx-menu" aria-label="Site">
+   <a class="tx-link" href="../index.html">Home</a>
+   <div class="tx-dd"><button class="tx-dd-btn grp-on" type="button" aria-haspopup="true" aria-expanded="false">Play <span class="tx-caret" aria-hidden="true">▾</span></button>
+    <div class="tx-dd-menu">
+     <a href="../how-it-works.html">How It Works<small>Join, worlds, the Living Sky</small></a>
+     <a href="../rules.html">Rules<small>PvP law, economy, conduct</small></a>
+     <a class="on" aria-current="page" href="../briefing/">Briefing<small>Comms audio terminal</small></a>
+    </div></div>
+   <div class="tx-dd"><button class="tx-dd-btn" type="button" aria-haspopup="true" aria-expanded="false">World <span class="tx-caret" aria-hidden="true">▾</span></button>
+    <div class="tx-dd-menu">
+     <a href="../factions.html">Factions<small>The four powers</small></a>
+     <a href="../ships.html">Ships<small>Supporter commissions</small></a>
+     <a href="../lore.html">Lore<small>The story so far</small></a>
+    </div></div>
+   <div class="tx-dd"><button class="tx-dd-btn" type="button" aria-haspopup="true" aria-expanded="false">Boards <span class="tx-caret" aria-hidden="true">▾</span></button>
+    <div class="tx-dd-menu">
+     <a href="../bounties.html">Wanted Board<small>Who the Coalition hunts</small></a>
+     <a href="../roster.html">Crew Roster<small>Linked members · staff</small></a>
+    </div></div>
+   <div class="tx-dd"><button class="tx-dd-btn" type="button" aria-haspopup="true" aria-expanded="false">Support <span class="tx-caret" aria-hidden="true">▾</span></button>
+    <div class="tx-dd-menu">
+     <a href="../shop.html">Support Packs<small>Space Credits, thank-you gifts</small></a>
+     <a href="../sponsor.html">Sponsor<small>Membership, from $9.99/mo</small></a>
+     <a href="../account.html">Your Account<small>Rank, faction, tier</small></a>
+    </div></div>
+   <span class="tx-actions">
+    <a class="tx-btn discord-login" href="../how-it-works.html#website-accounts">Login with Discord</a>
+    <a class="tx-btn tx-btn-join" href="https://discord.gg/t7ATgXxg2k">Join Discord</a>
+   </span>
+  </nav>
+ </div>
+ <noscript><style>.tx-menu{display:flex!important}.tx-dd-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;display:block}.tx-burger{display:none!important}</style></noscript>
+</header>
 <div class="terminal">
   <div class="windowbar">
     <div class="lights" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -309,7 +347,7 @@
         <div class="meta-label">Audio Briefing Package</div>
         <h2>Four transmissions</h2>
       </div>
-      <p>Voice: Admiral Vane<br>Total running time: 3 minutes 50 seconds</p>
+      <p>Voice: Admiral Vane<br>Total running time: 3 minutes 20 seconds</p>
     </div>
 
     <div class="entries">
@@ -318,7 +356,7 @@
         <div>
           <h3>Welcome to Coalition Space</h3>
           <p class="summary">The harbor, the law, and why your conduct is remembered.</p>
-          <div class="meta"><span>Audio 0:55</span><span>Orientation</span></div>
+          <div class="meta"><span>Audio 0:48</span><span>Orientation</span></div>
           <audio controls preload="metadata" src="track1-welcome-fast.mp3" aria-label="Play Welcome to Coalition Space"></audio>
           <details>
             <summary>Read transcript</summary>
@@ -332,7 +370,7 @@
         <div>
           <h3>The Law — Flags, Crimes and Bounties</h3>
           <p class="summary">How flags work, what counts as a crime, and what a bounty means.</p>
-          <div class="meta"><span>Audio 0:55</span><span>Rules of Engagement</span></div>
+          <div class="meta"><span>Audio 0:48</span><span>Rules of Engagement</span></div>
           <audio controls preload="metadata" src="track2-law-fast.mp3" aria-label="Play The Law, Flags, Crimes and Bounties"></audio>
           <details>
             <summary>Read transcript</summary>
@@ -346,7 +384,7 @@
         <div>
           <h3>Calling for Help</h3>
           <p class="summary">The two distress calls, the orbital QRF, and when to climb before calling again.</p>
-          <div class="meta"><span>Audio 0:56</span><span>Distress Response</span></div>
+          <div class="meta"><span>Audio 0:48</span><span>Distress Response</span></div>
           <audio controls preload="metadata" src="track3-distress-fast.mp3" aria-label="Play Calling for Help"></audio>
           <details>
             <summary>Read transcript</summary>
@@ -360,7 +398,7 @@
         <div>
           <h3>Factions, Credits and the Market</h3>
           <p class="summary">The four powers, standing, Space Credits, and the hub market.</p>
-          <div class="meta"><span>Audio 1:05</span><span>Coalition Economy</span></div>
+          <div class="meta"><span>Audio 0:56</span><span>Coalition Economy</span></div>
           <audio controls preload="metadata" src="track4-factions-fast.mp3" aria-label="Play Factions, Credits and the Market"></audio>
           <details>
             <summary>Read transcript</summary>
@@ -392,5 +430,6 @@
     window.setTimeout(typeNext, 350);
   })();
 </script>
+<script src="../js/site.js"></script>
 </body>
 </html>

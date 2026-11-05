@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ============================================================
+   TX247 shared navigation (redesign preview)
+   Slim sticky top bar: brand + grouped dropdown menus.
+   Fully scoped under .tx-nav so it never leaks into page styles
+   (the briefing terminal page loads this file on its own).
+   Works without JS on desktop via :hover / :focus-within;
+   js/site.js adds click toggles, mobile menu and Esc handling.
+   ============================================================ */
+.tx-nav{
+  --tx-line:rgba(255,255,255,.12);
+  --tx-dim:#b9c2c9;
+  --tx-faint:#6d7880;
+  --tx-cyan:#22d3ee;
+  position:sticky;top:0;z-index:80;
+  background:rgba(0,0,0,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--tx-line);
+  font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+.tx-nav *{margin:0;padding:0;box-sizing:border-box}
+.tx-nav-in{max-width:1180px;margin:0 auto;padding:10px 22px;display:flex;align-items:center;gap:14px;position:relative}
+.tx-brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:#fff;flex:none}
+.tx-brand img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--tx-cyan);box-shadow:0 0 14px rgba(34,211,238,.5)}
+.tx-bt{display:block;font-family:'Antonio','Arial Narrow',sans-serif;font-size:20px;font-weight:700;letter-spacing:.05em;line-height:1}
+.tx-brand small{display:block;color:var(--tx-faint);font-weight:600;letter-spacing:.24em;font-size:9px;margin-top:3px;text-transform:uppercase}
+
+.tx-menu{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:nowrap}
+.tx-link,.tx-dd-btn{
+  appearance:none;background:none;border:0;cursor:pointer;
+  color:var(--tx-dim);font:inherit;font-weight:600;font-size:14px;
+  padding:9px 13px;border-radius:999px;text-decoration:none;white-space:nowrap;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.tx-link:hover,.tx-dd-btn:hover{color:#fff;background:rgba(255,255,255,.07)}
+.tx-link.on{color:#fff;background:rgba(34,211,238,.14);box-shadow:inset 0 0 0 1.5px var(--tx-cyan)}
+.tx-dd{position:relative}
+.tx-dd-btn.grp-on{color:#fff;box-shadow:inset 0 -2px 0 var(--tx-cyan);border-radius:10px 10px 0 0}
+.tx-caret{font-size:10px;color:var(--tx-faint);transition:transform .15s}
+.tx-dd.open .tx-caret,.tx-dd:hover .tx-caret{transform:rotate(180deg)}
+
+.tx-dd-menu{
+  position:absolute;top:calc(100% + 6px);left:0;min-width:216px;
+  background:#0a0d10;border:1px solid var(--tx-line);border-radius:16px;
+  padding:8px;box-shadow:0 24px 54px rgba(0,0,0,.65);
+  opacity:0;visibility:hidden;transform:translateY(-4px);
+  transition:opacity .15s,transform .15s,visibility .15s;
+}
+.tx-dd:hover .tx-dd-menu,.tx-dd:focus-within .tx-dd-menu,.tx-dd.open .tx-dd-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.tx-dd-menu a{
+  display:block;color:var(--tx-dim);text-decoration:none;font-size:14px;font-weight:600;
+  padding:9px 12px;border-radius:10px;white-space:nowrap;
+}
+.tx-dd-menu a small{display:block;color:var(--tx-faint);font-size:11.5px;font-weight:500;margin-top:1px;white-space:normal}
+.tx-dd-menu a:hover{background:rgba(255,255,255,.07);color:#fff}
+.tx-dd-menu a.on{color:#fff;background:rgba(34,211,238,.14);box-shadow:inset 0 0 0 1.5px var(--tx-cyan)}
+
+.tx-actions{display:flex;gap:8px;align-items:center;margin-left:10px;flex:none}
+.tx-btn{
+  display:inline-block;background:var(--tx-cyan);color:#02141a;font-weight:800;
+  padding:9px 18px;border-radius:999px;font-size:13.5px;text-decoration:none;white-space:nowrap;
+  box-shadow:0 6px 20px rgba(34,211,238,.3);transition:transform .15s;
+}
+.tx-btn:hover{transform:translateY(-1px)}
+.tx-btn.discord-login{background:#5865F2;color:#fff;box-shadow:0 6px 20px rgba(88,101,242,.3)}
+.tx-btn.discord-login:hover{background:#4752C4}
+.tx-btn.discord-login.is-inactive{background:#23262b;color:#8b949d;box-shadow:none}
+.tx-btn.tx-btn-join{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4);box-shadow:none}
+
+.tx-burger{
+  display:none;margin-left:auto;flex:none;appearance:none;background:none;cursor:pointer;
+  border:1.5px solid var(--tx-line);border-radius:12px;padding:10px 11px;
+}
+.tx-burger span{display:block;width:20px;height:2px;background:#fff;margin:4px 0;border-radius:2px}
+.tx-burger span:first-child{margin-top:0}.tx-burger span:last-child{margin-bottom:0}
+
+/* Mobile: hamburger opens a stacked panel; groups expand in place */
+@media (max-width:920px){
+  .tx-burger{display:block}
+  .tx-menu{
+    display:none;position:absolute;top:calc(100% + 8px);left:12px;right:12px;
+    flex-direction:column;align-items:stretch;gap:2px;
+    background:#0a0d10;border:1px solid var(--tx-line);border-radius:18px;
+    padding:10px;box-shadow:0 24px 54px rgba(0,0,0,.7);max-height:calc(100vh - 90px);overflow:auto;
+  }
+  .tx-nav.open .tx-menu{display:flex}
+  .tx-link,.tx-dd-btn{width:100%;justify-content:space-between;padding:11px 12px;border-radius:12px}
+  .tx-dd-menu{position:static;min-width:0;box-shadow:none;border:0;border-radius:0;padding:0 0 4px 12px;background:transparent;
+    opacity:1;visibility:visible;transform:none;display:none}
+  .tx-dd.open .tx-dd-menu{display:block}
+  .tx-actions{margin:8px 0 2px;flex-wrap:wrap}
+  .tx-btn{flex:1;text-align:center}
+}

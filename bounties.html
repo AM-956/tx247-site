@@ -4,26 +4,48 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wanted Board — TX247 Galactic Coalition</title>
-<link rel="stylesheet" href="styles-v5.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="css/nav.css">
 </head>
 <body>
 
-<nav><div class="wrap nav-in">
-  <a class="brand" href="index.html"><img src="img/logo.jpg" alt="TX247 logo"><span><span class="bt">TX247</span><small>Galactic Coalition</small></span></a>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="lore.html">Lore</a>
-    <a href="factions.html">Factions</a>
-    <a href="how-it-works.html">How It Works</a>
-    <a href="rules.html">Rules</a>
-    <a href="bounties.html" class="on">Bounties</a> <a href="briefing/">Briefing</a>
-    <a href="ships.html">Ships</a>
-    <a href="shop.html">Support</a>
-    <a href="sponsor.html">Sponsor</a>
-    <a class="btn discord-login" href="how-it-works.html#website-accounts" style="padding:9px 20px">Login with Discord</a>
-    <a class="btn" href="https://discord.gg/t7ATgXxg2k" style="padding:9px 20px">Join Discord</a>
-  </div>
-</div></nav>
+<header class="tx-nav" id="txNav">
+ <div class="tx-nav-in">
+  <a class="tx-brand" href="index.html"><img src="img/logo.jpg" alt="TX247 logo"><span><span class="tx-bt">TX247</span><small>Galactic Coalition</small></span></a>
+  <button class="tx-burger" type="button" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <nav class="tx-menu" aria-label="Site">
+   <a class="tx-link" href="index.html">Home</a>
+   <div class="tx-dd"><button class="tx-dd-btn" type="button" aria-haspopup="true" aria-expanded="false">Play <span class="tx-caret" aria-hidden="true">▾</span></button>
+    <div class="tx-dd-menu">
+     <a href="how-it-works.html">How It Works<small>Join, worlds, the Living Sky</small></a>
+     <a href="rules.html">Rules<small>PvP law, economy, conduct</small></a>
+     <a href="briefing/">Briefing<small>Comms audio terminal</small></a>
+    </div></div>
+   <div class="tx-dd"><button class="tx-dd-btn" type="button" aria-haspopup="true" aria-expanded="false">World <span class="tx-caret" aria-hidden="true">▾</span></button>
+    <div class="tx-dd-menu">
+     <a href="factions.html">Factions<small>The four powers</small></a>
+     <a href="ships.html">Ships<small>Supporter commissions</small></a>
+     <a href="lore.html">Lore<small>The story so far</small></a>
+    </div></div>
+   <div class="tx-dd"><button class="tx-dd-btn grp-on" type="button" aria-haspopup="true" aria-expanded="false">Boards <span class="tx-caret" aria-hidden="true">▾</span></button>
+    <div class="tx-dd-menu">
+     <a class="on" aria-current="page" href="bounties.html">Wanted Board<small>Who the Coalition hunts</small></a>
+     <a href="roster.html">Crew Roster<small>Linked members · staff</small></a>
+    </div></div>
+   <div class="tx-dd"><button class="tx-dd-btn" type="button" aria-haspopup="true" aria-expanded="false">Support <span class="tx-caret" aria-hidden="true">▾</span></button>
+    <div class="tx-dd-menu">
+     <a href="shop.html">Support Packs<small>Space Credits, thank-you gifts</small></a>
+     <a href="sponsor.html">Sponsor<small>Membership, from $9.99/mo</small></a>
+     <a href="account.html">Your Account<small>Rank, faction, tier</small></a>
+    </div></div>
+   <span class="tx-actions">
+    <a class="tx-btn discord-login" href="how-it-works.html#website-accounts">Login with Discord</a>
+    <a class="tx-btn tx-btn-join" href="https://discord.gg/t7ATgXxg2k">Join Discord</a>
+   </span>
+  </nav>
+ </div>
+ <noscript><style>.tx-menu{display:flex!important}.tx-dd-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;display:block}.tx-burger{display:none!important}</style></noscript>
+</header>
 
 <div class="pagehero"><div class="wrap">
   <div class="kickerline">GDC Port Authority · The Board</div>
@@ -57,6 +79,7 @@
 </div></footer>
 <script src="js/auth-config.js"></script>
 <script src="js/auth.js"></script>
+<script src="js/site.js"></script>
 <script>
 (function () {
   var board = document.getElementById('board');
